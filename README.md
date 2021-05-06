@@ -14,6 +14,14 @@ redis-session:
  shards install
  ```
 After installing the shards make sure to run the post install script from the scripts folder!! (cant do it automatically due to permission issues)
+
+Run these commands in order, starting from your app's root folder:
+```cmd
+cd lib/redis-session/
+
+bash scripts/post_install
+```
+You can then start the app
  
  **Note** This script replaces core lucky framework files. It does create a backup before hand, should things go wrong - just keep that in mind.
  
