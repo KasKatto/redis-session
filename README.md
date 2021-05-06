@@ -1,5 +1,5 @@
 # redis-session
-A Crystal shard for Lucky framework to enable session storage in redis
+A Crystal shard for Lucky framework to enable session storage in redis. This allows you to store more than just 4kb in session when using lucky framework, due to lucky storing the whole session in cookies. This shard simply gives the client a session identifier that is cross-referenced with your redis database. 
 
 A very hacky solution that should "just work".
 
