@@ -17,6 +17,11 @@ redis-session:
  
  **Note** This script replaces core lucky framework files. It does create a backup before hand, should things go wrong - just keep that in mind.
  
+ After the script finishes add the following to your shards.cr
+ ```crystal
+ require "redis-session"
+ ```
+ 
  There is a config file as well allowing you to customise how redis-session works. It is included by default. To utilise it you should move it to your config folder (if its not already there.) Below is the config example:
  ```crystal
  RedisSession.configure do |settings|
