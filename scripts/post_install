@@ -1,0 +1,28 @@
+#!/bin/bash
+
+LUCKY_SESSION_SETTER=../lucky/src/lucky/text_response.cr
+LUCKY_SESSION=../lucky/src/lucky/cookies/session.cr
+BACKUP=backups/
+
+if [[ -f "$LUCKY_SESSION_SETTER" && -f "$LUCKY_SESSION" ]]; then
+    echo "required files found. Creating backup..."
+    mkdir backups
+    cp "$LUCKY_SESSION_SETTER" "$BACKUP"
+    cp "$LUCKY_SESSION" "$BACKUP"
+else
+    echo "required files found not found, double check lucky is first installed, then run this again. Exiting..."
+    exit 1
+fi
+
+sed -i '59,64d' "$LUCKY_SESSION_SETTER"
+sed -i '59 a\
+  private def write_session : Void\
+    RedisSession.write_session(context)\
+  end\
+' "$LUCKY_SESSION_SETTER"
+
+sed -i '13d' "$LUCKY_SESSION"
+sed -i '12 a \ \ \ \ \ \ RedisSession.read_session(cookie_jar).try do |contents|' "$LUCKY_SESSION"
+
+echo "Files backed up and patched"
+echo "If something goes wrong run the restore script from the lib/redis-session/scripts folder. Exiting..."

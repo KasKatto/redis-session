@@ -1,0 +1,25 @@
+name: redis-session
+version: 0.1.0
+
+crystal: ">= 0.35, < 2.0"
+
+authors:
+  - Mateusz Ignar
+
+description: |
+  Stores sessions in redis instead of cookies
+
+dependencies:
+  redis:
+    github: jgaskins/redis
+  habitat:
+    github: luckyframework/habitat
+    version: ~> 0.4.7
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.27.0
+
+scripts:
+  postinstall: scripts/post_install
+
+license: MIT

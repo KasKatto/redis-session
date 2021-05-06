@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LUCKY_SESSION_SETTER=../lucky/src/lucky/text_response.cr
+LUCKY_SESSION=../lucky/src/lucky/cookies/session.cr
+BACKUP=backups
+
+if [[ -d "$BACKUP" ]]; then
+    echo "Required files found. Restoring..."
+    cp "$BACKUP""/text_response.cr" "$LUCKY_SESSION_SETTER"
+    cp "$BACKUP""/session.cr" "$LUCKY_SESSION"
+else
+    echo "required files found not found, double check lucky is first installed, then run this again. Exiting..."
+    exit 1
+fi
