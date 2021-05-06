@@ -13,7 +13,7 @@ redis-session:
  ```cmd
  shards install
  ```
- The post install script should run automnatically and set things up.
+After installing the shards make sure to run the post install script from the scripts folder!! (cant do it automatically due to permission issues)
  
  **Note** This script replaces core lucky framework files. It does create a backup before hand, should things go wrong - just keep that in mind.
  
