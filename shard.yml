@@ -19,7 +19,4 @@ dependencies:
     github: luckyframework/lucky
     version: ~> 0.27.0
 
-scripts:
-  postinstall: scripts/post_install
-
 license: MIT
